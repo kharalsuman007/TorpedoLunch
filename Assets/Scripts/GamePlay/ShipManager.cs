@@ -10,14 +10,14 @@ public class ShipManager : MonoBehaviour
     #endregion
 
     #region Private Fields	
-    private ShipHealth shipHealth;
+
     #endregion
 
     // Use this for initialization
     void Start()
     {
-        shipHealth = GetComponent<ShipHealth>();
-         
+
+
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class ShipManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            shipHealth.Damage(1);
+            LevelManager.DoDamage(1);
             other.gameObject.SetActive(false);
-        }            
+        }
 
     }
     #endregion

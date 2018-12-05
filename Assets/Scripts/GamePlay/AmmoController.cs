@@ -49,6 +49,7 @@ public class AmmoController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            LevelManager.AddScore(1);
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
