@@ -5,7 +5,10 @@ using System.IO;
 
 public class SaveScoreToJson : MonoBehaviour
 {
-
+    /// <summary>
+    /// This script is responsible for saving the User score in the hard disk as a Json Object.
+    /// Json object is created so that when user exits the game and replays back the highest score made by player is still recorded. 
+    /// </summary>
     #region Public Fields		
     #endregion
 
@@ -32,10 +35,16 @@ public class SaveScoreToJson : MonoBehaviour
 
     public void SaveObject(int score)
     {
+        // The directory path where you can store the data.
         string scoreOutputPath = Application.persistentDataPath + @"\Score.json";
+
+        //Check if the current score is higher than saved highscore
         if (score > highScore)
             highScore = score;
+
         currentScore = score;
+
+        // Write data to the given path
         StreamWriter writer = new StreamWriter(scoreOutputPath);
         writer.WriteLine(JsonUtility.ToJson(this));
         writer.Close();
@@ -43,7 +52,10 @@ public class SaveScoreToJson : MonoBehaviour
 
     public void LoadObject()
     {
+        // The directory whe the data is stored.
         string scoreInputPath = Application.persistentDataPath + @"\Score.json";
+
+        // When first playing the game the file doesn't exist so create one with score of 0
         if (File.Exists(scoreInputPath))
         {
             StreamReader reader = new StreamReader(scoreInputPath);

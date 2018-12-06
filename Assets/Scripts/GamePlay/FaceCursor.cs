@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class FaceCursor : MonoBehaviour
 {
-
+    /// <summary>
+    /// This script is responsible for making the gameobject face the direction of mouse cursor.
+    /// </summary>
     #region Public Fields	
 
     #endregion
 
     #region Private Fields	
-    private Vector3 mouseWorldPosition;
-    private float cameraDifference;
+    private Vector3 mouseWorldPosition; // Vector3 to convert the mouse position into world point
+    private float cameraDifference;     // Difference between camera and target object in Y-axis
     #endregion
 
     // Use this for initialization
@@ -23,7 +25,10 @@ public class FaceCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Converting the mouse positon to world axis position
         mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraDifference));
+
+        // Setting and looking target direction by the gameobject this script is attached to
         Vector3 topedoLookDirection = new Vector3(mouseWorldPosition.x, transform.position.y, mouseWorldPosition.z);
         transform.LookAt(topedoLookDirection);
 

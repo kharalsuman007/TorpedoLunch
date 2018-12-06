@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ShipManager : MonoBehaviour
 {
-
+    /// <summary>
+    /// This script is responsible for detecting the collison of enemy to the spaceship
+    /// Furthermore it informs level manager to decrese the player health. 
+    /// </summary>
     #region Public Fields	
 
     #endregion
@@ -31,6 +34,7 @@ public class ShipManager : MonoBehaviour
     #endregion
 
     #region Private Methods	
+    //If the gameobject ship collides with is tagged as enemy the health is decreased by calling LevelManager script
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))

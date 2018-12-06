@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
     #region Public Fields	
     public static LevelManager manager = null;
@@ -19,16 +20,16 @@ public class LevelManager : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         if (manager != null)
         {
             DestroyImmediate(gameObject);
             return;
         }
-            
+
         manager = this;
-	}
+    }
 
     private void Start()
     {
@@ -56,10 +57,10 @@ public class LevelManager : MonoBehaviour {
     #region Private Methods	
 
     private void GameOver()
-    {        
+    {
         saveToJson.SaveObject(currentScore);
         SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Single);
-        
+
     }
     #endregion
 

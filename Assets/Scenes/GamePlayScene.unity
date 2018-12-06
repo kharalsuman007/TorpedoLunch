@@ -640,6 +640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPool: {fileID: 1440962907}
   enemySpawnTime: 2
+  minSpawnDistance: 25
+  maxSpawnDistance: 40
   enemyPrefabs:
   - {fileID: 1187659692358572, guid: fc858bdc553557640bff96ac8d7d1eec, type: 2}
   - {fileID: 1981204619603492, guid: df7148c67b0e5e74caa2212db151c982, type: 2}
