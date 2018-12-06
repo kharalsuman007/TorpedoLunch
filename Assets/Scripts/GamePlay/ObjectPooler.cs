@@ -7,9 +7,7 @@ public class ObjectPooler : MonoBehaviour
 
     #region Public Fields
 
-    public GameObject poolObject;
     public int pollSize = 15;
-
 
     #endregion
 
@@ -23,18 +21,7 @@ public class ObjectPooler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        poolObjectArray = new GameObject[pollSize];
-
-        for (int i = 0; i < poolObjectArray.Length; i++)
-        {
-            poolObjectArray[i] = Instantiate(poolObject, Vector3.zero, Quaternion.identity) as GameObject;
-            poolObjectArray[i].name = "GameObject" + i.ToString();
-            Transform objTransform = poolObjectArray[i].GetComponent<Transform>();
-            objTransform.SetParent(transform);
-            objectQueue.Enqueue(objTransform);
-            objTransform.gameObject.SetActive(false);
-        }
-
+        
     }
 
     // Update is called once per frame
@@ -44,6 +31,22 @@ public class ObjectPooler : MonoBehaviour
     }
 
     #region Public Methods	
+
+
+    public void instantiateObject(GameObject[] poolObject)
+    {
+        poolObjectArray = new GameObject[pollSize];
+
+        for (int i = 0; i < poolObjectArray.Length; i++)
+        {
+            poolObjectArray[i] = Instantiate(poolObject[Random.Range(0,poolObject.Length)], Vector3.zero, Quaternion.identity) as GameObject;
+            Transform objTransform = poolObjectArray[i].GetComponent<Transform>();
+            objTransform.SetParent(transform);
+            objectQueue.Enqueue(objTransform);
+            objTransform.gameObject.SetActive(false);
+        }
+
+    }
 
     public void CreateObject(Vector3 _position, Quaternion _rotation)
     {

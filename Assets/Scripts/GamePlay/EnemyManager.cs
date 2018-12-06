@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     #region Public Fields	
     public ObjectPooler enemyPool;
     public float enemySpawnTime;
+    public GameObject[] enemyPrefabs;
     #endregion
 
     #region Private Fields	
@@ -18,8 +19,9 @@ public class EnemyManager : MonoBehaviour
     #endregion
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        enemyPool.instantiateObject(enemyPrefabs);
         orthographicCameraSize = Camera.main.orthographicSize;
     }
 

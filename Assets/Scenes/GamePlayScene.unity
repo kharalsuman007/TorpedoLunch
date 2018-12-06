@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1027491514}
   shipHealthSlider: {fileID: 1490086631}
-  shipTotalHealth: 2
+  shipTotalHealth: 5
   gameOverSceneName: GameOverMenu
 --- !u!4 &465199498
 Transform:
@@ -392,8 +392,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 140
-  orthographic: 1
+  field of view: 60
+  orthographic: 0
   orthographic size: 30
   m_Depth: -1
   m_CullingMask:
@@ -417,7 +417,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -436,7 +436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832941836287798, guid: e2c89f485f3e6a347993af74811ada4f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4832941836287798, guid: e2c89f485f3e6a347993af74811ada4f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -501,6 +501,8 @@ MonoBehaviour:
   torpedoCoolRate: 4
   torpedoEndTranform: {fileID: 889880755}
   ammoPool: {fileID: 237348168}
+  ammoPrefabs:
+  - {fileID: 1573414353079962, guid: 3019df8dfaf49074288aac0ce226d4e5, type: 2}
 --- !u!4 &738411225
 Transform:
   m_ObjectHideFlags: 0
@@ -638,6 +640,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPool: {fileID: 1440962907}
   enemySpawnTime: 2
+  enemyPrefabs:
+  - {fileID: 1187659692358572, guid: fc858bdc553557640bff96ac8d7d1eec, type: 2}
+  - {fileID: 1981204619603492, guid: df7148c67b0e5e74caa2212db151c982, type: 2}
+  - {fileID: 1952013067608858, guid: 12a628ed5e0cad44d89a0d6cc5b811e3, type: 2}
 --- !u!4 &868477612
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,7 +1154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000993516917960, guid: cd150f01c47f69541a1614543a45001d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4000993516917960, guid: cd150f01c47f69541a1614543a45001d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1173,6 +1179,10 @@ Prefab:
     - target: {fileID: 4000993516917960, guid: cd150f01c47f69541a1614543a45001d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738143004766320, guid: cd150f01c47f69541a1614543a45001d, type: 2}
+      propertyPath: m_Name
+      value: SpaceShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd150f01c47f69541a1614543a45001d, type: 2}
@@ -1256,6 +1266,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1573414353079962, guid: 3019df8dfaf49074288aac0ce226d4e5,
         type: 2}
+    - target: {fileID: 1741019253440148, guid: 3415b828e320db343bd4fd3d5bc30687, type: 2}
+      propertyPath: m_Name
+      value: AmmoPoll
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3415b828e320db343bd4fd3d5bc30687, type: 2}
   m_IsPrefabAsset: 0
@@ -1614,7 +1628,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1741019253440148, guid: 3415b828e320db343bd4fd3d5bc30687, type: 2}
       propertyPath: m_Name
-      value: ObjectPoller (1)
+      value: EnemyPoll
       objectReference: {fileID: 0}
     - target: {fileID: 114216625833194838, guid: 3415b828e320db343bd4fd3d5bc30687,
         type: 2}

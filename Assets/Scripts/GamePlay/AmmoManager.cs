@@ -11,6 +11,7 @@ public class AmmoManager : MonoBehaviour
     public float torpedoCoolRate;
     public Transform torpedoEndTranform;
     public ObjectPooler ammoPool;
+    public GameObject[] ammoPrefabs;
     #endregion
 
     #region Private Fields	
@@ -21,6 +22,7 @@ public class AmmoManager : MonoBehaviour
 
     private void Awake()
     {
+        ammoPool.instantiateObject(ammoPrefabs);
         coolDownSlider.maxValue = torpedoCoolTime;
         coolDownSlider.value = torpedoCoolTime;
     }
