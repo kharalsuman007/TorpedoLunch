@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1027491514}
   shipHealthSlider: {fileID: 1490086631}
-  shipTotalHealth: 5
+  shipTotalHealth: 10
   gameOverSceneName: GameOverMenu
 --- !u!4 &465199498
 Transform:
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPool: {fileID: 1440962907}
-  enemySpawnTime: 2
+  enemySpawnTime: 1.5
   minSpawnDistance: 25
   maxSpawnDistance: 40
   enemyPrefabs:

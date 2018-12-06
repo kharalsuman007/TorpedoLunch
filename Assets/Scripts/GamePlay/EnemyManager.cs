@@ -22,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     private float timeSinceEnemyCreated = 0f;
     private float orthographicCameraSize = 0f;
+    private float maxDistanceInsideScreen = 0f;
     private Vector2 enemySpawnRadius;
     #endregion
 
@@ -30,6 +31,7 @@ public class EnemyManager : MonoBehaviour
     {
         // creating different kinds of enemy and putting them in pool so they can be retrived later.
         enemyPool.instantiateObject(enemyPrefabs);
+        maxDistanceInsideScreen = Mathf.Sqrt((Screen.width / 2) ^ 2 + (Screen.height / 2) ^ 2); // Pythagoras theorem.
     }
 
     // Update is called once per frame
@@ -41,11 +43,16 @@ public class EnemyManager : MonoBehaviour
         // creating enemy after user defined time.
         if (timeSinceEnemyCreated >= enemySpawnTime)
         {
-            // Positioning the enemy between random minimum and maximum distance.
-            Vector3 enemyPosition = new Vector3(Random.Range(minSpawnDistance, maxSpawnDistance) * randomPlusMinus(), 0f, Random.Range(minSpawnDistance, maxSpawnDistance) * randomPlusMinus());
+            // Random value within a complete circle in radians (would be 0 - 360 in degrees)
+            float spawnAngle = Random.Range(0, 2 * Mathf.PI); 
+
+            // Equation of the circle
+            Vector3 enemyPosition = new Vector3(maxDistanceInsideScreen * Mathf.Cos(spawnAngle), 0f, maxDistanceInsideScreen * Mathf.Sin(spawnAngle));
+            
             enemyPool.CreateObject(enemyPosition, Quaternion.identity);
             timeSinceEnemyCreated = 0f;
         }
+
     }
 
     #region Public Methods	
@@ -53,14 +60,7 @@ public class EnemyManager : MonoBehaviour
     #endregion
 
     #region Private Methods
-    // Function to return the random +1 or -1 so that enemies can be generated from all directions.
-    private int randomPlusMinus()
-    {
-        if (Random.Range(0, 2) == 0)
-            return -1;
-        else
-            return 1;
-    }
+
     #endregion
 
 
