@@ -56,7 +56,8 @@ public class LevelManager : MonoBehaviour {
     #region Private Methods	
 
     private void GameOver()
-    {
+    {        
+        saveToJson.SaveObject(currentScore);
         SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Single);
         
     }
